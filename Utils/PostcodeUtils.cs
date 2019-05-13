@@ -12,7 +12,16 @@ namespace Utils {
             if (strPostCode.StartsWith("AB")) {
                 return false;
             }
-            return true;
+
+            string[] singleDigitPostCodeAreas = { "BR", "FY", "HA", "HD", "HG", "HR", "HS", "HX", "JE", "LD", "SM", "SR", "WC", "WN", "ZE" };
+            foreach (string area in singleDigitPostCodeAreas)
+            {
+                if(strPostCode.StartsWith(area) && strPostCode.IndexOf(' ') > 3)
+                {
+                    return false;
+                }
+            }
+                return true;
         }
 
     }
