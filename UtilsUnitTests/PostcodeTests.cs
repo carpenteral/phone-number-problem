@@ -35,6 +35,20 @@ namespace UtilsUnitTests {
             }
         }
 
+        [TestMethod]
+        public void test_areas_with_double_digit_districts()
+        {
+            // Arrange
+            string[] doubleDigitPostCodeAreas = { "AB", "LL", "SO" };
+            foreach (string area in doubleDigitPostCodeAreas)
+            {
+                // Act
+                bool ok = PostcodeUtils.IsValid(area + "2 1AB");
+                // Assert
+                ok.Should().BeFalse($"Only single-digit districts allowed. Area={area}");
+            }
+        }
+
     }
 }
  

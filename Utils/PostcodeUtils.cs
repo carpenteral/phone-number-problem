@@ -21,6 +21,16 @@ namespace Utils {
                     return false;
                 }
             }
+
+            string[] doubleDigitPostCodeAreas = { "AB", "LL", "SO" };
+            foreach (string area in doubleDigitPostCodeAreas)
+            {
+                if(strPostCode.StartsWith(area) && strPostCode.IndexOf(' ') == 3)
+                {
+                    return false;
+                }
+            }
+
                 return true;
         }
 
